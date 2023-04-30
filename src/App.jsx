@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Route } from "wouter";
 
 import Home from './pages/Home';
-import ListOfGifs from './components/SearchResults'
+import SearchResults from './pages/SearchResults'
 
 import './App.css'
-import "./components/SearchResults/list.css"
 import Header from './components/Header';
 
 function App() {
@@ -18,15 +17,10 @@ function App() {
           className="compHeader"
         />
 
-        <Route 
-          component={Home} 
-          path="/"
-        />
+        
+        <Route path="/"> <Home/> </Route>
          
-        <Route 
-          component={ListOfGifs} 
-          path="/search/:keyword"
-        />
+        <Route path="/search/:keyword" component={SearchResults}> </Route>
 
       </section>
     

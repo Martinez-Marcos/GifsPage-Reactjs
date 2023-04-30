@@ -1,7 +1,9 @@
+import services from "./servicesGifs";
 
-import { searchURL as apiURL, limit, apiKey } from "./servicesGifs";
+const { searchURL: apiURL, limit, apiKey} = services;
 
 export default function getGifs (keyword = ``){
+
     return fetch(`${apiURL}?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`)
       .then(res=>res.json())
       .then(resp=>{

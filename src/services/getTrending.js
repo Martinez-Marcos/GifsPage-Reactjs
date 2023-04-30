@@ -1,10 +1,11 @@
-import { trendingURL as apiURL, limit, apiKey} from "./servicesGifs";
+import services from "./servicesGifs.js";
 
-export default function getTrending (rating ='g'){
+const { trendingURL: apiURL, limit, apiKey} = services;
+
+export default function getTrending (rating ='g'){  
     return fetch(`${apiURL}?api_key=${apiKey}&limit=${limit}&offset=0&rating=${rating}&lang=en`)
       .then(res=>res.json())
       .then(resp=>{
-        console.log(resp)
         const {data} = resp;
         const gifs = data.map(data=> {
           const {id, title, images} = data;  

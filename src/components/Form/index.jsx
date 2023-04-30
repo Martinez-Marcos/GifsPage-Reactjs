@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 
+import { useLocation } from "wouter";
+
 export default function Form(){ 
-const [keyword,setkeyword] = useState("")
+const [keyword,setkeyword] = useState("");
+const [location, setlocation] = useLocation();
+
 
 const handleSubmit= (event)=>{
     event.preventDeafult()
- 
+    const keyword= event.search.value;
+    setlocation(`/search/${keyword}`);
+
 }
 
 const handleChange = (event)=>{
@@ -14,7 +20,7 @@ const handleChange = (event)=>{
 
 return(
     <form onSubmit={handleSubmit}>
-        <input type="text" value={keyword}/>
+        <input onChange={handleChange} name="search" type="text" value={keyword}/>
         <button>Buscar!</button>
     </form>
 )

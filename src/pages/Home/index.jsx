@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
+
 import "./home.css"
-import Header from "../../components/Header";
+
 import ShowTrending from "../../components/ShowTrending";
+import Form from "../../components/Form";
 
 export default function Home(){
-    
     return (
         <>
-            <Header/>
-            
+            <Form></Form>
             <ShowTrending/>
         </>
     )
